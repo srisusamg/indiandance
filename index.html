@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>🎮 Bollywood Beat Master - Dance Gaming Experience �</title>
+    <title>🎮 Bollywood Beat Master - Pro Gamer Edition 🏆</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Fredoka+One:wght@400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Russo+One&family=Poppins:wght@400;600;700&display=swap');
         
         * {
             margin: 0;
@@ -16,10 +16,10 @@
         }
         
         body {
-            font-family: 'Dancing Script', cursive;
-            background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3, #54a0ff);
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(45deg, #1e1e1e, #2d3436, #1a1a1a);
             background-size: 300% 300%;
-            animation: bollywoodGradient 4s ease infinite;
+            animation: gamingGradient 10s ease infinite;
             overflow: hidden;
             height: 100vh;
             height: 100dvh; /* Dynamic viewport height for mobile */
@@ -34,8 +34,9 @@
         .theme-diwali { background: linear-gradient(45deg, #ff9500, #ff6b00, #ffdd00, #ff4757, #ffa502); }
         .theme-wedding { background: linear-gradient(45deg, #ff6b9d, #c44569, #f8b500, #ff6348, #ff9ff3); }
         .theme-club { background: linear-gradient(45deg, #1e3c72, #2a5298, #ff6b6b, #feca57, #ee5a24); }
+        .theme-gaming { background: linear-gradient(45deg, #0d0d0d, #1a1a1a, #2a2a2a, #1e1e1e); }
         
-        @keyframes bollywoodGradient {
+        @keyframes gamingGradient {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
@@ -47,6 +48,7 @@
             height: 100%;
             pointer-events: none;
             z-index: 1;
+            opacity: 0.7;
         }
         
         .disco-ball {
@@ -54,12 +56,13 @@
             top: 20px;
             left: 50%;
             transform: translateX(-50%);
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            background: radial-gradient(circle, silver, gray);
-            animation: discoBallSpin 3s linear infinite;
+            background: radial-gradient(circle, #444, #111);
+            animation: discoBallSpin 5s linear infinite;
             z-index: 5;
+            box-shadow: 0 0 20px #000;
         }
         
         @keyframes discoBallSpin {
@@ -69,25 +72,25 @@
         
         .spotlight {
             position: absolute;
-            width: 100px;
-            height: 100px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
-            animation: spotlightMove 6s ease-in-out infinite;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
+            animation: spotlightMove 8s ease-in-out infinite;
             pointer-events: none;
         }
         
         @keyframes spotlightMove {
             0%, 100% { transform: translate(0, 0); }
-            25% { transform: translate(300px, 200px); }
-            50% { transform: translate(-200px, 400px); }
-            75% { transform: translate(400px, -100px); }
+            25% { transform: translate(200px, 150px); }
+            50% { transform: translate(-150px, 300px); }
+            75% { transform: translate(300px, -50px); }
         }
         
         .light {
             position: absolute;
-            width: 20px;
-            height: 20px;
+            width: 15px;
+            height: 15px;
             border-radius: 50%;
             animation: discoFlash 2s ease-in-out infinite;
         }
@@ -101,38 +104,41 @@
             position: relative;
             z-index: 10;
             text-align: center;
-            padding: 20px;
+            padding: 15px;
             height: 100vh;
             height: 100dvh; /* Dynamic viewport height for mobile */
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             /* Mobile Safari safe area */
-            padding-top: max(20px, env(safe-area-inset-top));
-            padding-bottom: max(20px, env(safe-area-inset-bottom));
+            padding-top: max(15px, env(safe-area-inset-top));
+            padding-bottom: max(15px, env(safe-area-inset-bottom));
         }
         
         .header {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
             padding: 15px;
             border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         
         .title {
-            font-size: 2.5em;
+            font-family: 'Russo One', sans-serif;
+            font-size: 2.2em;
             font-weight: 700;
-            color: #ff6b6b;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            color: #00a8ff;
+            text-shadow: 0 0 10px #00a8ff, 0 0 20px #00a8ff;
             margin-bottom: 10px;
         }
         
         .score-board {
             display: flex;
             justify-content: space-around;
-            font-size: 1.2em;
-            color: #2d3436;
+            font-size: 1.1em;
+            color: #eee;
             font-weight: 600;
         }
         
@@ -143,36 +149,20 @@
             justify-content: center;
             align-items: center;
             position: relative;
+            perspective: 800px;
         }
         
         .dancer {
-            font-size: 120px;
+            width: 200px;
+            height: 200px;
             margin: 20px;
             transition: all 0.3s ease;
-            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.8));
-            background-size: cover;
+            filter: drop-shadow(0 0 20px rgba(0, 168, 255, 0.6));
+            background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-            width: 150px;
-            height: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 20px;
-            overflow: hidden;
             position: relative;
-        }
-        
-        .dancer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, rgba(255, 107, 107, 0.1), rgba(254, 202, 87, 0.1));
-            border-radius: inherit;
-            pointer-events: none;
+            transform-style: preserve-3d;
         }
         
         .dancer.thumka {
@@ -234,15 +224,17 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            font-family: 'Russo One', sans-serif;
             font-size: 2em;
             font-weight: 700;
-            background: radial-gradient(circle, #ff6b6b, #feca57);
+            background: linear-gradient(45deg, #00a8ff, #00ffc6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             opacity: 0;
             animation: tapCueFlash 0.5s ease-in-out;
             pointer-events: none;
+            text-shadow: 0 0 10px rgba(0, 255, 198, 0.5);
         }
         
         @keyframes tapCueFlash {
@@ -259,19 +251,22 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            font-family: 'Russo One', sans-serif;
         }
         
         .combo-meter {
             position: absolute;
             top: 20px;
             left: 20px;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(0, 0, 0, 0.7);
             padding: 10px 15px;
             border-radius: 15px;
             font-weight: 700;
             font-size: 1.2em;
-            color: #ff6b6b;
+            color: #00a8ff;
             display: none;
+            border: 1px solid rgba(0, 168, 255, 0.5);
+            text-shadow: 0 0 5px #00a8ff;
         }
         
         .combo-animation {
@@ -280,17 +275,19 @@
         
         @keyframes comboFlash {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); color: #00b894; }
+            50% { transform: scale(1.2); color: #00ffc6; }
         }
         
         .power-up {
             position: absolute;
             font-size: 2em;
             background: radial-gradient(circle, #feca57, #ff6b6b);
-            padding: 10px;
+            padding: 15px;
             border-radius: 50%;
             animation: powerUpFloat 2s ease-in-out infinite;
             cursor: pointer;
+            border: 2px solid white;
+            box-shadow: 0 0 20px #feca57;
         }
         
         @keyframes powerUpFloat {
@@ -303,28 +300,34 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
             padding: 30px;
             border-radius: 20px;
             box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
             z-index: 1000;
             display: none;
-            min-width: 300px;
+            min-width: 320px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
         .leaderboard h3 {
-            color: #ff6b6b;
+            color: #00a8ff;
             margin-bottom: 15px;
-            font-size: 1.5em;
+            font-size: 1.8em;
+            font-family: 'Russo One', sans-serif;
+            text-shadow: 0 0 10px #00a8ff;
         }
         
         .score-entry {
             display: flex;
             justify-content: space-between;
             margin: 8px 0;
-            padding: 5px;
-            border-radius: 5px;
-            background: rgba(255, 107, 107, 0.1);
+            padding: 8px 12px;
+            border-radius: 10px;
+            background: rgba(0, 168, 255, 0.1);
+            color: #eee;
+            font-weight: 600;
         }
         
         .difficulty-selector {
@@ -332,35 +335,46 @@
         }
         
         .difficulty-btn {
-            background: linear-gradient(45deg, #6c5ce7, #a29bfe);
+            background: linear-gradient(45deg, #333, #555);
             color: white;
-            border: none;
+            border: 1px solid #777;
             padding: 10px 20px;
             margin: 5px;
             border-radius: 20px;
             cursor: pointer;
-            font-family: 'Dancing Script', cursive;
+            font-family: 'Poppins', sans-serif;
             font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        
+        .difficulty-btn:hover {
+            background: linear-gradient(45deg, #444, #666);
+            border-color: #999;
         }
         
         .difficulty-btn.active {
-            background: linear-gradient(45deg, #00b894, #55a3ff);
+            background: linear-gradient(45deg, #00a8ff, #00ffc6);
             transform: scale(1.05);
+            color: #111;
+            border: none;
+            text-shadow: none;
         }
         
-        .perfect { color: #00b894; text-shadow: 2px 2px 4px rgba(0, 184, 148, 0.5); }
-        .good { color: #fdcb6e; text-shadow: 2px 2px 4px rgba(253, 203, 110, 0.5); }
-        .missed { color: #e17055; text-shadow: 2px 2px 4px rgba(225, 112, 85, 0.5); }
+        .perfect { color: #00ffc6; text-shadow: 0 0 8px rgba(0, 255, 198, 0.7); }
+        .good { color: #feca57; text-shadow: 0 0 8px rgba(254, 202, 87, 0.7); }
+        .missed { color: #ff6b6b; text-shadow: 0 0 8px rgba(255, 107, 107, 0.7); }
         
         .controls {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
             padding: 20px;
-            border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border-radius: 20px 20px 0 0;
+            box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.3);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .tap-button {
-            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            background: radial-gradient(circle, #00a8ff, #007bff);
             border: none;
             border-radius: 50%;
             width: 120px;
@@ -370,13 +384,14 @@
             font-weight: 700;
             cursor: pointer;
             transition: all 0.2s ease;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-            font-family: 'Dancing Script', cursive;
+            box-shadow: 0 0 20px #00a8ff, inset 0 0 10px rgba(255,255,255,0.3);
+            font-family: 'Russo One', sans-serif;
+            text-shadow: 0 0 5px rgba(0,0,0,0.5);
         }
         
         .tap-button:hover {
             transform: scale(1.05);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 0 30px #00a8ff, 0 0 40px #00ffc6, inset 0 0 10px rgba(255,255,255,0.3);
         }
         
         .tap-button:active {
@@ -384,8 +399,8 @@
         }
         
         .start-button {
-            background: linear-gradient(45deg, #00b894, #55a3ff);
-            color: white;
+            background: linear-gradient(45deg, #00a8ff, #00ffc6);
+            color: #111;
             border: none;
             padding: 15px 30px;
             border-radius: 30px;
@@ -394,12 +409,13 @@
             cursor: pointer;
             margin: 10px;
             transition: all 0.2s ease;
-            font-family: 'Dancing Script', cursive;
+            font-family: 'Russo One', sans-serif;
+            text-shadow: none;
         }
         
         .start-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 16px rgba(0, 168, 255, 0.3);
         }
         
         .confetti {
@@ -412,7 +428,7 @@
             position: absolute;
             width: 10px;
             height: 10px;
-            background: #ff6b6b;
+            background: #00a8ff;
             animation: confettiFall 2s ease-out forwards;
         }
         
@@ -432,27 +448,29 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
             padding: 40px;
             border-radius: 30px;
             box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
             z-index: 1000;
             text-align: center;
             font-size: 2em;
-            color: #ff6b6b;
+            color: #00a8ff;
             display: none;
+            border: 1px solid rgba(0, 168, 255, 0.5);
         }
         
         .game-status {
             font-size: 1.2em;
-            color: #2d3436;
+            color: #ccc;
             margin: 10px 0;
             font-weight: 600;
         }
         
         @media (max-width: 768px) {
-            .title { font-size: 2em; }
-            .dancer { font-size: 80px; width: 120px; height: 120px; }
+            .title { font-size: 1.8em; }
+            .dancer { font-size: 80px; width: 150px; height: 150px; }
             .tap-button { width: 100px; height: 100px; font-size: 1.5em; }
             .score-board { font-size: 1em; }
             .feedback { font-size: 1.5em; }
@@ -472,7 +490,7 @@
             .controls {
                 position: relative;
                 z-index: 100;
-                background: rgba(255, 255, 255, 0.95);
+                background: rgba(0, 0, 0, 0.75);
                 backdrop-filter: blur(10px);
                 border-radius: 20px 20px 0 0;
                 box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.3);
@@ -489,18 +507,19 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            border: none;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 50%;
             width: 50px;
             height: 50px;
             font-size: 1.5em;
             cursor: pointer;
             z-index: 100;
+            color: white;
         }
     </style>
 </head>
-<body>
+<body class="theme-gaming">
     <div class="disco-lights" id="discoLights"></div>
     <div class="disco-ball"></div>
     <div class="spotlight"></div>
@@ -511,7 +530,7 @@
     
     <div class="container">
         <div class="header">
-            <div class="title">� Bollywood Beat Master �</div>
+            <div class="title">🏆 Bollywood Beat Master 🏆</div>
             <div class="score-board">
                 <div>Score: <span id="score">0</span></div>
                 <div>Round: <span id="round">0</span>/<span id="maxRounds">10</span></div>
@@ -520,7 +539,7 @@
         </div>
         
         <div class="game-area">
-            <div class="dancer" id="dancer">🎯</div>
+            <div class="dancer" id="dancer"></div>
             <div class="tap-cue" id="tapCue">💥 TAP NOW 💥</div>
             <div class="feedback" id="feedback"></div>
             <div class="game-status" id="gameStatus">Choose difficulty to start your rhythm gaming adventure!</div>
@@ -528,7 +547,7 @@
         
         <div class="controls">
             <div class="difficulty-selector" id="difficultySelector">
-                <button class="difficulty-btn active" onclick="selectDifficulty('easy')">� Novice</button>
+                <button class="difficulty-btn active" onclick="selectDifficulty('easy')">😎 Novice</button>
                 <button class="difficulty-btn" onclick="selectDifficulty('normal')">🔥 Pro</button>
                 <button class="difficulty-btn" onclick="selectDifficulty('hard')">⚡ Elite</button>
                 <button class="difficulty-btn" onclick="selectDifficulty('endless')">💎 Legend</button>
@@ -547,7 +566,7 @@
             Max Combo: <span id="maxComboDisplay">0</span>x
         </div>
         <div style="margin-top: 20px;">
-            <input type="text" id="playerName" placeholder="Enter your name" maxlength="10" style="padding: 10px; border-radius: 10px; border: 2px solid #ff6b6b; margin-right: 10px;">
+            <input type="text" id="playerName" placeholder="Enter your name" maxlength="10" style="padding: 10px; border-radius: 10px; border: 2px solid #00a8ff; margin-right: 10px; background: #333; color: white;">
             <button class="start-button" onclick="saveScore()">💾 Save Score</button>
         </div>
         <button class="start-button" onclick="resetGame()" style="margin-top: 10px;">🔄 Play Again</button>
@@ -561,74 +580,20 @@
     
     <button class="audio-control" id="audioControl" onclick="toggleAudio()">🎵</button>
     
-    <!-- Realistic Bollywood Music Tracks -->
-    <audio id="bgMusic1" loop preload="auto">
-        <!-- Classic Bollywood Instrumental -->
-        <source src="https://actions.google.com/sounds/v1/musical_moments/tabla_beat_single.ogg" type="audio/ogg">
-        <source src="https://actions.google.com/sounds/v1/musical_moments/tabla_beat_single.mp3" type="audio/mpeg">
-    </audio>
+    <!-- High-Quality Bollywood Music Tracks from Pixabay -->
+    <audio id="bgMusic1" loop preload="auto" src="https://cdn.pixabay.com/audio/2022/01/21/audio_3118dd7452.mp3"></audio>
+    <audio id="bgMusic2" loop preload="auto" src="https://cdn.pixabay.com/audio/2023/05/18/audio_3353f371f0.mp3"></audio>
+    <audio id="bgMusic3" loop preload="auto" src="https://cdn.pixabay.com/audio/2022/05/23/audio_988958a683.mp3"></audio>
+    <audio id="bgMusic4" loop preload="auto" src="https://cdn.pixabay.com/audio/2022/03/10/audio_73d8699f3b.mp3"></audio>
+    <audio id="bgMusic5" loop preload="auto" src="https://cdn.pixabay.com/audio/2021/11/23/audio_85149e33b2.mp3"></audio>
     
-    <audio id="bgMusic2" loop preload="auto">
-        <!-- Punjabi Dhol Beat -->
-        <source src="https://actions.google.com/sounds/v1/musical_moments/dhol_beat_single.ogg" type="audio/ogg">
-        <source src="https://actions.google.com/sounds/v1/musical_moments/dhol_beat_single.mp3" type="audio/mpeg">
-    </audio>
-    
-    <audio id="bgMusic3" loop preload="auto">
-        <!-- Classical Indian Music -->
-        <source src="https://actions.google.com/sounds/v1/musical_moments/sitar_strum_single.ogg" type="audio/ogg">
-        <source src="https://actions.google.com/sounds/v1/musical_moments/sitar_strum_single.mp3" type="audio/mpeg">
-    </audio>
-    
-    <!-- Additional Bollywood Music Tracks -->
-    <audio id="bgMusic4" loop preload="auto">
-        <!-- Folk Music Beat -->
-        <source src="https://actions.google.com/sounds/v1/musical_moments/hand_clap_beat.ogg" type="audio/ogg">
-        <source src="https://actions.google.com/sounds/v1/musical_moments/hand_clap_beat.mp3" type="audio/mpeg">
-    </audio>
-    
-    <audio id="bgMusic5" loop preload="auto">
-        <!-- Modern Bollywood Fusion -->
-        <source src="https://actions.google.com/sounds/v1/musical_moments/wood_block_beat.ogg" type="audio/ogg">
-        <source src="https://actions.google.com/sounds/v1/musical_moments/wood_block_beat.mp3" type="audio/mpeg">
-    </audio>
-    
-    <!-- Realistic Bollywood Sound Effects -->
-    <audio id="perfectSound" preload="auto">
-        <source src="https://actions.google.com/sounds/v1/impacts/bells_small_chimes.ogg" type="audio/ogg">
-        <source src="https://actions.google.com/sounds/v1/impacts/bells_small_chimes.mp3" type="audio/mpeg">
-    </audio>
-    
-    <audio id="goodSound" preload="auto">
-        <source src="https://actions.google.com/sounds/v1/musical_moments/tabla_beat_single.ogg" type="audio/ogg">
-        <source src="https://actions.google.com/sounds/v1/musical_moments/tabla_beat_single.mp3" type="audio/mpeg">
-    </audio>
-    
-    <audio id="missSound" preload="auto">
-        <source src="https://actions.google.com/sounds/v1/impacts/wood_plank_hit.ogg" type="audio/ogg">
-        <source src="https://actions.google.com/sounds/v1/impacts/wood_plank_hit.mp3" type="audio/mpeg">
-    </audio>
-    
-    <audio id="comboSound" preload="auto">
-        <source src="https://actions.google.com/sounds/v1/musical_moments/hand_clap_beat.ogg" type="audio/ogg">
-        <source src="https://actions.google.com/sounds/v1/musical_moments/hand_clap_beat.mp3" type="audio/mpeg">
-    </audio>
-    
-    <!-- Additional Bollywood Sound Effects -->
-    <audio id="thumkaSound" preload="auto">
-        <source src="https://actions.google.com/sounds/v1/musical_moments/dhol_beat_single.ogg" type="audio/ogg">
-        <source src="https://actions.google.com/sounds/v1/musical_moments/dhol_beat_single.mp3" type="audio/mpeg">
-    </audio>
-    
-    <audio id="bhangraSound" preload="auto">
-        <source src="https://actions.google.com/sounds/v1/musical_moments/wood_block_beat.ogg" type="audio/ogg">
-        <source src="https://actions.google.com/sounds/v1/musical_moments/wood_block_beat.mp3" type="audio/mpeg">
-    </audio>
-    
-    <audio id="celebrationSound" preload="auto">
-        <source src="https://actions.google.com/sounds/v1/impacts/celebration_cheer.ogg" type="audio/ogg">
-        <source src="https://actions.google.com/sounds/v1/impacts/celebration_cheer.mp3" type="audio/mpeg">
-    </audio>
+    <!-- High-Quality Sound Effects from Pixabay -->
+    <audio id="perfectSound" preload="auto" src="https://cdn.pixabay.com/audio/2022/03/15/audio_73ed55159a.mp3"></audio>
+    <audio id="goodSound" preload="auto" src="https://cdn.pixabay.com/audio/2021/08/04/audio_bb630cc098.mp3"></audio>
+    <audio id="missSound" preload="auto" src="https://cdn.pixabay.com/audio/2022/03/10/audio_e08735367a.mp3"></audio>
+    <audio id="comboSound" preload="auto" src="https://cdn.pixabay.com/audio/2022/11/21/audio_a25f131059.mp3"></audio>
+    <audio id="powerupSound" preload="auto" src="https://cdn.pixabay.com/audio/2022/05/06/audio_b87e38170c.mp3"></audio>
+    <audio id="celebrationSound" preload="auto" src="https://cdn.pixabay.com/audio/2022/08/23/audio_8697811a13.mp3"></audio>
     
     <script>
         // Enhanced Game State with all new features
@@ -643,112 +608,83 @@
             combo: 0,
             maxCombo: 0,
             perfectHits: 0,
-            currentTheme: 0,
+            currentTheme: 4, // Start with gaming theme
             difficulty: 'easy',
             powerUps: [],
             activePowerUp: null,
             currentMusic: 0,
             
-            // Enhanced dancers with gaming-focused designs and professional appeal
+            // Enhanced dancers with animated GIFs for a pro-gamer feel
             dancers: [
-                { 
-                    emoji: '🎯', 
-                    name: 'Precision Dancer', 
-                    image: 'https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=150&h=150&fit=crop&crop=center',
-                    silhouette: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNmZjZiNmI7c3RvcC1vcGFjaXR5OjEiIC8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmVjYTU3O3N0b3Atb3BhY2l0eToxIiAvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxwYXRoIGQ9Ik03NSAyMEM4NSAyMCA5MCAzMCA4OCA0MEM4NSA1MCA4MCA1NSA3NSA1NUM3MCA1NSA2NSA1MCA2MiA0MEM2MCAzMCA2NSAyMCA3NSAyMFogTTc1IDU1Qzc4IDYwIDgyIDcwIDgwIDgwQzc3IDkwIDc1IDk1IDcwIDk1QzY1IDk1IDYwIDkwIDU3IDgwQzU1IDcwIDU5IDYwIDYyIDU1SDc1WiBNNjIgNTVDNDcgNjAgNDIgNzAgNDcgODBDNTIgOTAgNTcgOTUgNjIgOTVIODhDNTcgOTUgOTMgOTAgOTggODBDMTAzIDcwIDk4IDYwIDgzIDU1SDYyWiIgZmlsbD0idXJsKCNnKSIvPjwvc3ZnPg==',
-                    sound: 'https://actions.google.com/sounds/v1/musical_moments/tabla_beat_single.mp3'
-                },
-                { 
-                    emoji: '⚡', 
-                    name: 'Lightning Performer', 
-                    image: 'https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?w=150&h=150&fit=crop&crop=center',
-                    silhouette: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImgiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiM0OGRiZmI7c3RvcC1vcGFjaXR5OjEiIC8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmY5ZmYzO3N0b3Atb3BhY2l0eToxIiAvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxwYXRoIGQ9Ik03NSAyNUM4MyAyNSA4NyAzMyA4NSA0MUM4MyA0OSA3OSA1MyA3NSA1M0M3MSA1MyA2NyA0OSA2NSA0MUM2MyAzMyA2NyAyNSA3NSAyNVogTTc1IDUzQzc5IDU3IDgzIDY1IDgxIDczQzc5IDgxIDc1IDg1IDcxIDg1QzY3IDg1IDYzIDgxIDYxIDczQzU5IDY1IDYzIDU3IDY3IDUzSDc1WiBNNjcgNTNDNTMgNTcgNDkgNjUgNTMgNzNDNTcgODEgNjEgODUgNjcgODVIODNDNjEgODUgODkgODEgOTMgNzNDOTcgNjUgOTMgNTcgNzkgNTNINjdaIiBmaWxsPSJ1cmwoI2gpIi8+PC9zdmc+',
-                    sound: 'https://actions.google.com/sounds/v1/musical_moments/dhol_beat_single.mp3'
-                },
-                { 
-                    emoji: '🏆', 
-                    name: 'Champion Duo', 
-                    image: 'https://images.unsplash.com/photo-1574391884720-bbc7b2f075e3?w=150&h=150&fit=crop&crop=center',
-                    silhouette: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImkiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiM1NGEwZmY7c3RvcC1vcGFjaXR5OjEiIC8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZkZDAwO3N0b3Atb3BhY2l0eToxIiAvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxwYXRoIGQ9Ik00NSAyNUM1MSAyNSA1MyAzMSA1MiAzN0M1MSA0MyA0OSA0NSA0NSA0NUM0MSA0NSAzOSA0MyAzOCAzN0MzNyAzMSAzOSAyNSA0NSAyNVogTTEwNSAyNUMxMTEgMjUgMTEzIDMxIDExMiAzN0MxMTEgNDMgMTA5IDQ1IDEwNSA0NUMxMDEgNDUgOTkgNDMgOTggMzdDOTcgMzEgOTkgMjUgMTA1IDI1WiBNNDUgNDVDNDggNDcgNTEgNTMgNTAgNTlDNDkgNjUgNDUgNjcgNDEgNjdDMzcgNjcgMzMgNjUgMzIgNTlDMzEgNTMgMzQgNDcgMzcgNDVINDVaIE0xMDUgNDVDMTA4IDQ3IDExMSA1MyAxMTAgNTlDMTA5IDY1IDEwNSA2NyAxMDEgNjdDOTcgNjcgOTMgNjUgOTIgNTlDOTEgNTMgOTQgNDcgOTcgNDVIMTA1WiIgZmlsbD0idXJsKCNpKSIvPjwvc3ZnPg==',
-                    sound: 'https://actions.google.com/sounds/v1/musical_moments/hand_clap_beat.mp3'
-                },
-                { 
-                    emoji: '💎', 
-                    name: 'Elite Master', 
-                    image: 'https://images.unsplash.com/photo-1583308872811-73283d4c5a20?w=150&h=150&fit=crop&crop=center',
-                    silhouette: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImoiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNkNjNlMzE7c3RvcC1vcGFjaXR5OjEiIC8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZkNzAwO3N0b3Atb3BhY2l0eToxIiAvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxwYXRoIGQ9Ik03NSAyMkM4NSAyMiA5MCAzMiA4OCA0MkM4NSA1MiA4MCA1NyA3NSA1N0M3MCA1NyA2NSA1MiA2MiA0MkM2MCAzMiA2NSAyMiA3NSAyMlpNNzUgNTdDODAgNjAgODUgNzAgODMgODBDODAgOTAgNzUgOTUgNzAgOTVDNjUgOTUgNjAgOTAgNTcgODBDNTUgNzAgNjAgNjAgNjUgNTdINzVaIiBmaWxsPSJ1cmwoI2opIi8+PC9zdmc+',
-                    sound: 'https://actions.google.com/sounds/v1/impacts/bells_small_chimes.mp3'
-                },
-                { 
-                    emoji: '🎮', 
-                    name: 'Pro Gamer', 
-                    image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=150&h=150&fit=crop&crop=center',
-                    silhouette: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImsiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNmNzk3Zjg7c3RvcC1vcGFjaXR5OjEiIC8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZkNzAwO3N0b3Atb3BhY2l0eToxIiAvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxwYXRoIGQ9Ik03NSAyNUM4MyAyNSA4NyAzMyA4NSA0MUM4MyA0OSA3OSA1MyA3NSA1M0M3MSA1MyA2NyA0OSA2NSA0MUM2MyAzMyA2NyAyNSA3NSAyNVoiIGZpbGw9InVybCgjaylbMjM0Jyk+PC9wYXRoPjwvc3ZnPg==',
-                    sound: 'https://actions.google.com/sounds/v1/musical_moments/wood_block_beat.mp3'
-                }
+                'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3Y2a2NqZzZwc3JqZzZpZ3NqZzZqZzZqZzZqZzZqZzZx/l3vR7aXoH6C2AdBvO/giphy.gif',
+                'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3Y2a2NqZzZwc3JqZzZpZ3NqZzZqZzZqZzZqZzZqZzZx/xT0xezOCwbeQ6S2h2w/giphy.gif',
+                'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3Y2a2NqZzZwc3JqZzZpZ3NqZzZqZzZqZzZqZzZqZzZx/3o7TKUMp3dGz535MvK/giphy.gif',
+                'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3Y2a2NqZzZwc3JqZzZpZ3NqZzZqZzZqZzZqZzZqZzZx/3o6ZtqNbtk2S2g3yA8/giphy.gif',
+                'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3Y2a2NqZzZwc3JqZzZpZ3NqZzZqZzZqZzZqZzZqZzZx/l2Spitchc6g3iAI2A/giphy.gif'
             ],
             currentDancer: 0,
             
             // Gaming-focused dance moves with professional appeal
             danceMoves: [
-                { name: 'Power Strike', emoji: '🎯', cue: 'PRECISION STRIKE!', animation: 'thumka', difficulty: 1, sound: 'thumkaSound', description: 'Perfect timing challenge' },
-                { name: 'Lightning Combo', emoji: '⚡', cue: 'LIGHTNING FAST!', animation: 'bhangra', difficulty: 2, sound: 'bhangraSound', description: 'Speed combo move' },
-                { name: 'Victory Wave', emoji: '🏆', cue: 'CHAMPION MOVE!', animation: 'handwave', difficulty: 1.5, sound: 'perfectSound', description: 'Triumphant gesture' },
-                { name: 'Beat Drop', emoji: '🔥', cue: 'DROP THE BEAT!', animation: 'headbob', difficulty: 1.2, sound: 'goodSound', description: 'Rhythm mastery' },
-                { name: 'Epic Spin', emoji: '💫', cue: 'EPIC COMBO!', animation: 'dandiya', difficulty: 2.5, sound: 'comboSound', description: 'Advanced rotation' },
-                { name: 'Power Burst', emoji: '💥', cue: 'POWER BURST!', animation: 'thumka', difficulty: 2.2, sound: 'thumkaSound', description: 'Explosive movement' },
-                { name: 'Master Flow', emoji: '💎', cue: 'MASTER LEVEL!', animation: 'handwave', difficulty: 1.8, sound: 'celebrationSound', description: 'Elite technique' }
+                { name: 'Power Strike', emoji: '🎯', cue: 'PRECISION STRIKE!', animation: 'thumka', description: 'Perfect timing challenge' },
+                { name: 'Lightning Combo', emoji: '⚡', cue: 'LIGHTNING FAST!', animation: 'bhangra', description: 'Speed combo move' },
+                { name: 'Victory Wave', emoji: '🏆', cue: 'CHAMPION MOVE!', animation: 'handwave', description: 'Triumphant gesture' },
+                { name: 'Beat Drop', emoji: '🔥', cue: 'DROP THE BEAT!', animation: 'headbob', description: 'Rhythm mastery' },
+                { name: 'Epic Spin', emoji: '💫', cue: 'EPIC COMBO!', animation: 'dandiya', description: 'Advanced rotation' },
+                { name: 'Power Burst', emoji: '💥', cue: 'POWER BURST!', animation: 'thumka', description: 'Explosive movement' },
+                { name: 'Master Flow', emoji: '💎', cue: 'MASTER LEVEL!', animation: 'handwave', description: 'Elite technique' }
             ],
             currentMove: 0,
             
             // Background themes
-            themes: ['theme-holi', 'theme-diwali', 'theme-wedding', 'theme-club'],
+            themes: ['theme-holi', 'theme-diwali', 'theme-wedding', 'theme-club', 'theme-gaming'],
             
             // Voice clips for feedback - Gaming with Bollywood flair
             voiceClips: [
-                'Epic Win! Legendary!', 'Perfect Strike! Pro Level!', 'Outstanding! You\'re Fire!', 
-                'Insane Combo! Beast Mode!', 'Flawless Victory!', 'Champion Performance!',
+                'Epic Win!', 'Perfect Strike!', 'Godlike!', 'Flawless!',
+                'Outstanding!', 'You\'re on Fire!', 'Elite!',
+                'Insane Combo!', 'Beast Mode!', 'Flawless Victory!', 'Champion Performance!',
                 'Godlike Skills!', 'Unstoppable Force!', 'Elite Gamer!',
                 'Maximum Power!', 'Victory Royale!', 'Crushing It!'
             ]
         };
         
         let gameInterval;
-        let audioEnabled = true;
+        let audioEnabled = false; // Start with audio disabled until user interaction
         let currentBGMusic = null;
         
         // Difficulty settings
         const difficultySettings = {
-            easy: { rounds: 10, minDelay: 3000, maxDelay: 5000, perfectWindow: 150, goodWindow: 300 },
-            normal: { rounds: 15, minDelay: 2000, maxDelay: 4000, perfectWindow: 120, goodWindow: 250 },
-            hard: { rounds: 20, minDelay: 1500, maxDelay: 3000, perfectWindow: 100, goodWindow: 200 },
+            easy: { rounds: 10, minDelay: 2500, maxDelay: 4000, perfectWindow: 150, goodWindow: 300 },
+            normal: { rounds: 15, minDelay: 1800, maxDelay: 3500, perfectWindow: 120, goodWindow: 250 },
+            hard: { rounds: 20, minDelay: 1200, maxDelay: 2800, perfectWindow: 100, goodWindow: 200 },
             endless: { rounds: Infinity, minDelay: 1000, maxDelay: 2500, perfectWindow: 80, goodWindow: 180 }
         };
         
         // Initialize enhanced disco lights with realistic effects
         function createDiscoLights() {
             const discoContainer = document.getElementById('discoLights');
-            const colors = ['#ff6b6b', '#feca57', '#48dbfb', '#ff9ff3', '#54a0ff', '#fd79a8', '#00b894'];
+            const colors = ['#00a8ff', '#00ffc6', '#feca57', '#ff6b6b', '#ff9ff3', '#fd79a8'];
             
             // Create more disco lights
-            for (let i = 0; i < 30; i++) {
+            for (let i = 0; i < 20; i++) {
                 const light = document.createElement('div');
                 light.className = 'light';
                 light.style.left = Math.random() * 100 + '%';
                 light.style.top = Math.random() * 100 + '%';
                 light.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
                 light.style.animationDelay = Math.random() * 2 + 's';
-                light.style.width = (Math.random() * 15 + 10) + 'px';
+                light.style.width = (Math.random() * 10 + 5) + 'px';
                 light.style.height = light.style.width;
                 discoContainer.appendChild(light);
             }
             
             // Add moving spotlights
-            for (let i = 0; i < 3; i++) {
+            for (let i = 0; i < 2; i++) {
                 const spotlight = document.createElement('div');
                 spotlight.className = 'spotlight';
                 spotlight.style.animationDelay = i * 2 + 's';
-                spotlight.style.animationDuration = (6 + i * 2) + 's';
+                spotlight.style.animationDuration = (8 + i * 2) + 's';
                 discoContainer.appendChild(spotlight);
             }
         }
@@ -764,14 +700,17 @@
             if (Math.random() < 0.15 && gameState.isPlaying) { // 15% chance
                 const powerUp = document.createElement('div');
                 powerUp.className = 'power-up';
-                powerUp.innerHTML = ['⚡', '🔥', '⭐', '💎'][Math.floor(Math.random() * 4)];
+                powerUp.innerHTML = ['⚡️', '2x', '❄️', '💎'][Math.floor(Math.random() * 4)];
                 powerUp.style.left = Math.random() * 80 + 10 + '%';
                 powerUp.style.top = Math.random() * 60 + 20 + '%';
                 
-                const powerType = ['double', 'slow', 'perfect', 'combo'][Math.floor(Math.random() * 4)];
+                const powerType = ['combo', 'double', 'slow', 'perfect'][Math.floor(Math.random() * 4)];
                 powerUp.dataset.type = powerType;
                 
-                powerUp.onclick = () => activatePowerUp(powerType, powerUp);
+                powerUp.onclick = (e) => {
+                    e.stopPropagation(); // Prevent tap from registering as a game tap
+                    activatePowerUp(powerType, powerUp);
+                };
                 
                 document.querySelector('.game-area').appendChild(powerUp);
                 
@@ -785,12 +724,12 @@
         }
         
         function activatePowerUp(type, element) {
-            gameState.activePowerUp = { type, duration: 3000, startTime: Date.now() };
+            gameState.activePowerUp = { type, duration: 5000, startTime: Date.now() };
             element.remove();
             
             // Visual feedback
             showFeedback(`Power-Up: ${type.toUpperCase()}!`, 'perfect');
-            playSound('comboSound');
+            playSound('powerupSound');
         }
         
         // Enhanced display with combo meter
@@ -810,6 +749,8 @@
                 comboDisplay.textContent = gameState.combo;
                 if (gameState.combo > gameState.maxCombo) {
                     gameState.maxCombo = gameState.combo;
+                }
+                if (gameState.combo % 5 === 0) {
                     comboMeter.classList.add('combo-animation');
                     setTimeout(() => comboMeter.classList.remove('combo-animation'), 500);
                 }
@@ -827,7 +768,7 @@
             event.target.classList.add('active');
             
             document.getElementById('gameStatus').textContent = 
-                `${difficulty.charAt(0).toUpperCase() + difficulty.slice(1)} mode selected! Press Start to begin!`;
+                `${difficulty.charAt(0).toUpperCase() + difficulty.slice(1)} mode selected! Press Start!`;
         }
         
         // Enhanced music system with authentic Bollywood tracks
@@ -843,20 +784,26 @@
             currentBGMusic = document.getElementById(musicTracks[gameState.currentMusic]);
             
             // Set volume for better experience
-            currentBGMusic.volume = 0.4; // Reduced volume for better mobile experience
-            currentBGMusic.play().catch(e => {
-                console.log('Audio play failed:', e);
-                // Try to enable audio on next user interaction
-                document.addEventListener('click', enableAudioOnTouch, { once: true });
-                document.addEventListener('touchstart', enableAudioOnTouch, { once: true });
-            });
+            currentBGMusic.volume = 0.4;
+            const playPromise = currentBGMusic.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(e => {
+                    console.log('Audio play failed:', e);
+                    // Audio will be enabled on first user tap
+                });
+            }
         }
         
         // Enable audio on first user interaction (required for mobile)
-        function enableAudioOnTouch() {
-            if (currentBGMusic && audioEnabled) {
-                currentBGMusic.play().catch(e => console.log('Touch audio enable failed:', e));
-            }
+        function enableAudio() {
+            if (audioEnabled) return;
+            audioEnabled = true;
+            document.getElementById('audioControl').textContent = '🎵';
+            // Pre-play and pause all sounds to ensure they are loaded on iOS
+            document.querySelectorAll('audio').forEach(audio => {
+                audio.play().then(() => audio.pause()).catch(() => {});
+            });
+            playBackgroundMusic();
         }
         
         function playSound(soundId) {
@@ -864,30 +811,9 @@
             const sound = document.getElementById(soundId);
             if (sound) {
                 sound.currentTime = 0;
-                sound.volume = 0.7;
+                sound.volume = 0.6;
                 sound.play().catch(e => console.log('Sound play failed:', e));
             }
-        }
-        
-        // Enhanced sound for specific dance moves
-        function playDanceMoveSound(moveIndex) {
-            if (!audioEnabled) return;
-            
-            const move = gameState.danceMoves[moveIndex];
-            if (move.sound) {
-                playSound(move.sound);
-            }
-            
-            // Additional sound effects based on move type
-            setTimeout(() => {
-                if (move.name === 'Thumka' || move.name === 'Jhatkas') {
-                    playSound('thumkaSound');
-                } else if (move.name === 'Bhangra') {
-                    playSound('bhangraSound');
-                } else if (move.name === 'Dandiya') {
-                    playSound('comboSound');
-                }
-            }, 200);
         }
         
         // Voice feedback system with enhanced gaming expressions
@@ -897,16 +823,19 @@
             let clips;
             switch(type) {
                 case 'perfect':
-                    clips = ['Epic Win! Legendary!', 'Perfect Strike! Pro Level!', 'Godlike Skills!', 'Flawless Victory!'];
+                    clips = ['Epic Win!', 'Perfect Strike!', 'Godlike!', 'Flawless!'];
                     break;
                 case 'good':
-                    clips = ['Outstanding! You\'re Fire!', 'Champion Performance!', 'Elite Gamer!'];
+                    clips = ['Outstanding!', 'You\'re on Fire!', 'Elite!'];
                     break;
                 case 'miss':
-                    clips = ['Keep Grinding!', 'Almost There!', 'Next Round!'];
+                    clips = ['Oof!', 'Almost!', 'Next time!'];
                     break;
                 case 'combo':
-                    clips = ['Insane Combo! Beast Mode!', 'Maximum Power!', 'Unstoppable Force!', 'Victory Royale!'];
+                    clips = ['Insane Combo!', 'Beast Mode!', 'Unstoppable!', 'Victory Royale!'];
+                    break;
+                case 'victory':
+                    clips = ['Legendary Performance!', 'You are the Beat Master!', 'GG! Well Played!'];
                     break;
                 default:
                     clips = gameState.voiceClips;
@@ -919,18 +848,19 @@
                 const utterance = new SpeechSynthesisUtterance(clip);
                 utterance.rate = 1.2;
                 utterance.pitch = 1.3;
-                utterance.volume = 0.7;
+                utterance.volume = 0.8;
                 utterance.lang = 'en-IN'; // Indian English accent
                 speechSynthesis.speak(utterance);
             }
             
             // Also play celebration sound for perfect hits
             if (type === 'perfect') {
-                setTimeout(() => playSound('celebrationSound'), 500);
+                setTimeout(() => playSound('celebrationSound'), 300);
             }
         }
         
         function startGame() {
+            enableAudio(); // Ensure audio is enabled when the game starts
             gameState.isPlaying = true;
             gameState.score = 0;
             gameState.round = 0;
@@ -949,21 +879,27 @@
             playBackgroundMusic();
             updateDisplay();
             
-            // Change theme every few rounds
-            switchTheme();
+            // Set initial dancer
+            const dancer = document.getElementById('dancer');
+            dancer.style.backgroundImage = `url(${gameState.dancers[0]})`;
             
             scheduleNextMove();
         }
         
         function scheduleNextMove() {
-            if (gameState.round >= gameState.maxRounds) {
+            if (gameState.round >= gameState.maxRounds && gameState.difficulty !== 'endless') {
                 endGame();
                 return;
             }
             
             const settings = difficultySettings[gameState.difficulty];
-            const delay = Math.random() * (settings.maxDelay - settings.minDelay) + settings.minDelay;
+            let delay = Math.random() * (settings.maxDelay - settings.minDelay) + settings.minDelay;
             
+            // In endless mode, speed up over time
+            if (gameState.difficulty === 'endless') {
+                delay *= Math.max(0.4, 1 - (gameState.round / 100)); // Speed up to 60% faster
+            }
+
             setTimeout(() => {
                 if (gameState.isPlaying) {
                     performDanceMove();
@@ -980,41 +916,11 @@
             gameState.currentMove = Math.floor(Math.random() * gameState.danceMoves.length);
             const move = gameState.danceMoves[gameState.currentMove];
             
-            // Change dancer occasionally with realistic images
-            if (Math.random() < 0.4) {
+            // Change dancer occasionally with animated GIFs
+            if (Math.random() < 0.3) {
                 gameState.currentDancer = (gameState.currentDancer + 1) % gameState.dancers.length;
                 const dancer = document.getElementById('dancer');
-                const currentDancerData = gameState.dancers[gameState.currentDancer];
-                
-                // Use real images 60% of the time, silhouettes 30%, emojis 10%
-                const displayChoice = Math.random();
-                if (displayChoice < 0.6 && currentDancerData.image) {
-                    // Use realistic Bollywood dancer image
-                    dancer.style.backgroundImage = `url(${currentDancerData.image})`;
-                    dancer.style.backgroundSize = 'cover';
-                    dancer.style.backgroundPosition = 'center';
-                    dancer.style.borderRadius = '50%';
-                    dancer.style.border = '4px solid #ff6b6b';
-                    dancer.textContent = '';
-                } else if (displayChoice < 0.9) {
-                    // Use artistic silhouette
-                    dancer.style.backgroundImage = `url(${currentDancerData.silhouette})`;
-                    dancer.style.backgroundSize = 'contain';
-                    dancer.style.borderRadius = '20px';
-                    dancer.style.border = '2px solid #feca57';
-                    dancer.textContent = '';
-                } else {
-                    // Use emoji
-                    dancer.style.backgroundImage = '';
-                    dancer.style.border = 'none';
-                    dancer.style.borderRadius = '0';
-                    dancer.textContent = currentDancerData.emoji;
-                }
-                
-                // Play dancer-specific sound
-                if (currentDancerData.sound) {
-                    setTimeout(() => playSound('perfectSound'), 100);
-                }
+                dancer.style.backgroundImage = `url(${gameState.dancers[gameState.currentDancer]})`;
             }
             
             // Animate dancer with specific move
@@ -1024,32 +930,31 @@
             // Show move-specific cue with description
             const tapCue = document.getElementById('tapCue');
             tapCue.innerHTML = `${move.emoji} ${move.cue} ${move.emoji}`;
-            tapCue.style.opacity = '1';
-            tapCue.style.animation = 'tapCueFlash 0.5s ease-in-out';
             
             // Enhanced screen flash with color
             document.body.style.filter = 'brightness(1.4) saturate(1.3)';
             setTimeout(() => {
+                tapCue.style.animation = 'tapCueFlash 0.5s ease-in-out';
+                tapCue.style.opacity = '1';
+            }, 50);
+            setTimeout(() => {
                 document.body.style.filter = 'brightness(1) saturate(1)';
-            }, 150);
+                tapCue.style.opacity = '0';
+            }, 200);
             
             document.getElementById('gameStatus').textContent = 
                 `Round ${gameState.round} - ${move.description}!`;
             
-            // Play move-specific sound
-            playDanceMoveSound(gameState.currentMove);
-            
             // Create power-up occasionally
             createPowerUp();
             
-            // Theme change every 5 rounds
-            if (gameState.round % 5 === 0) {
+            // Theme change every 10 rounds
+            if (gameState.round % 10 === 0) {
                 switchTheme();
             }
             
             // Auto-miss after adjusted time based on difficulty
-            const missTimeout = gameState.difficulty === 'hard' ? 800 : 
-                               gameState.difficulty === 'normal' ? 1000 : 1200;
+            const missTimeout = difficultySettings[gameState.difficulty].goodWindow + 200;
             
             setTimeout(() => {
                 if (gameState.waitingForTap) {
@@ -1068,6 +973,10 @@
                 return;
             }
             
+            if ('vibrate' in navigator) {
+                navigator.vibrate(50); // Haptic feedback
+            }
+
             const reactionTime = Date.now() - gameState.thumkaStartTime;
             gameState.waitingForTap = false;
             
@@ -1094,8 +1003,11 @@
                             break;
                         case 'perfect':
                             if (reactionTime <= adjustedGoodWindow) {
-                                reactionTime = adjustedPerfectWindow - 1; // Force perfect
+                                reactionTime = adjustedPerfectWindow - 10; // Force perfect
                             }
+                            break;
+                        case 'combo':
+                            gameState.combo += 5; // Instant combo boost
                             break;
                     }
                 } else {
@@ -1123,9 +1035,9 @@
                 playVoiceClip('good');
                 createEnhancedConfetti('good');
             } else {
-                feedback = '� Keep Trying!';
+                feedback = '❌ Missed!';
                 className = 'missed';
-                points = 10;
+                points = 0;
                 gameState.combo = 0;
                 playSound('missSound');
                 playVoiceClip('miss');
@@ -1133,14 +1045,14 @@
             
             // Apply combo bonus with Bollywood flair
             if (gameState.combo > 2) {
-                const comboBonus = Math.floor(gameState.combo / 3) * 25;
+                const comboBonus = Math.min(100, Math.floor(gameState.combo / 2) * 10);
                 points += comboBonus;
-                feedback += ` +${comboBonus} Combo Blast!`;
+                feedback += ` +${comboBonus} Combo!`;
                 
                 if (gameState.combo % 5 === 0) {
                     playSound('comboSound');
                     playVoiceClip('combo');
-                    feedback += ' 🔥 Fire Streak! 🔥';
+                    feedback += ' 🔥 Streak! 🔥';
                 }
             }
             
@@ -1160,7 +1072,7 @@
             setTimeout(() => {
                 document.getElementById('feedback').textContent = '';
                 scheduleNextMove();
-            }, 1500);
+            }, 1200);
         }
         
         function showFeedback(text, className) {
@@ -1175,7 +1087,7 @@
             gameState.waitingForTap = false;
             gameState.combo = 0;
             
-            showFeedback('� Missed! Try Again!', 'missed');
+            showFeedback('❌ Missed! Too Slow!', 'missed');
             playSound('missSound');
             playVoiceClip('miss');
             updateDisplay();
@@ -1183,44 +1095,46 @@
             setTimeout(() => {
                 document.getElementById('feedback').textContent = '';
                 scheduleNextMove();
-            }, 1500);
+            }, 1200);
         }
         
         // Enhanced confetti system
         function createEnhancedConfetti(type) {
             const colors = type === 'perfect' 
-                ? ['#00b894', '#00cec9', '#55efc4', '#81ecec']
-                : ['#fdcb6e', '#f39c12', '#e17055', '#fd79a8'];
+                ? ['#00ffc6', '#00a8ff', '#ffffff']
+                : ['#feca57', '#ff9ff3', '#ffffff'];
             
-            const particleCount = type === 'perfect' ? 30 : 20;
+            const particleCount = type === 'perfect' ? 40 : 20;
             
             for (let i = 0; i < particleCount; i++) {
                 const confetti = document.createElement('div');
                 confetti.className = 'confetti-piece';
-                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.left = (Math.random() * 100) + 'vw';
+                confetti.style.top = (Math.random() * 100) + 'vh';
                 confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                confetti.style.animationDelay = Math.random() * 0.5 + 's';
-                confetti.style.animationDuration = (1.5 + Math.random() * 0.5) + 's';
+                confetti.style.animationDelay = Math.random() * 0.2 + 's';
+                confetti.style.animationDuration = (1.5 + Math.random() * 1) + 's';
                 
                 // Add different shapes
-                if (Math.random() < 0.3) {
-                    confetti.style.borderRadius = '0';
-                    confetti.innerHTML = ['⭐', '💫', '✨', '🎉'][Math.floor(Math.random() * 4)];
-                    confetti.style.fontSize = '12px';
-                    confetti.style.background = 'transparent';
+                const shape = Math.random();
+                if (shape < 0.3) {
+                    confetti.style.borderRadius = '50%';
+                } else if (shape < 0.6) {
+                    confetti.style.width = '5px';
+                    confetti.style.height = '15px';
                 }
                 
                 document.body.appendChild(confetti);
                 
                 setTimeout(() => {
                     confetti.remove();
-                }, 2000);
+                }, 2500);
             }
         }
         
         // Leaderboard system with localStorage
         function saveScore() {
-            const playerName = document.getElementById('playerName').value || 'Anonymous';
+            const playerName = document.getElementById('playerName').value.trim() || 'Anonymous';
             const newScore = {
                 name: playerName,
                 score: gameState.score,
@@ -1230,28 +1144,28 @@
                 date: new Date().toLocaleDateString()
             };
             
-            let leaderboard = JSON.parse(localStorage.getItem('bollywoodLeaderboard') || '[]');
+            let leaderboard = JSON.parse(localStorage.getItem('bollywoodBeatMasterLeaderboard') || '[]');
             leaderboard.push(newScore);
             leaderboard.sort((a, b) => b.score - a.score);
             leaderboard = leaderboard.slice(0, 10); // Keep top 10
             
-            localStorage.setItem('bollywoodLeaderboard', JSON.stringify(leaderboard));
+            localStorage.setItem('bollywoodBeatMasterLeaderboard', JSON.stringify(leaderboard));
             
             document.getElementById('celebration').style.display = 'none';
             showLeaderboard();
         }
         
         function showLeaderboard() {
-            const leaderboard = JSON.parse(localStorage.getItem('bollywoodLeaderboard') || '[]');
+            const leaderboard = JSON.parse(localStorage.getItem('bollywoodBeatMasterLeaderboard') || '[]');
             const leaderboardList = document.getElementById('leaderboardList');
             
             if (leaderboard.length === 0) {
                 leaderboardList.innerHTML = '<div style="text-align: center; color: #666;">No scores yet!</div>';
             } else {
                 leaderboardList.innerHTML = leaderboard.map((score, index) => `
-                    <div class="score-entry">
+                    <div class="score-entry" style="background: ${index === 0 ? 'rgba(0, 255, 198, 0.2)' : index === 1 ? 'rgba(0, 168, 255, 0.2)' : index === 2 ? 'rgba(254, 202, 87, 0.2)' : 'rgba(0, 168, 255, 0.1)'};">
                         <span>${index + 1}. ${score.name}</span>
-                        <span>${score.score} pts (${score.difficulty})</span>
+                        <span>${score.score} pts (${score.difficulty.slice(0,1).toUpperCase()})</span>
                     </div>
                 `).join('');
             }
@@ -1266,7 +1180,7 @@
         function endGame() {
             gameState.isPlaying = false;
             document.getElementById('tapButton').disabled = true;
-            document.getElementById('gameStatus').textContent = 'Game Complete!';
+            document.getElementById('gameStatus').textContent = 'Game Over!';
             
             // Stop music
             if (currentBGMusic) {
@@ -1275,14 +1189,15 @@
             
             // Update celebration text based on performance
             const celebrationTitle = document.getElementById('celebrationTitle');
-            if (gameState.perfectHits >= gameState.round * 0.8) {
+            const roundsPlayed = gameState.difficulty === 'endless' ? gameState.round : gameState.maxRounds;
+            if (gameState.perfectHits >= roundsPlayed * 0.8) {
                 celebrationTitle.textContent = '👑 Gaming Legend! 👑';
-            } else if (gameState.perfectHits >= gameState.round * 0.6) {
-                celebrationTitle.textContent = '� Rhythm Master! �';
-            } else if (gameState.perfectHits >= gameState.round * 0.4) {
-                celebrationTitle.textContent = '� Pro Player! �';
+            } else if (gameState.perfectHits >= roundsPlayed * 0.6) {
+                celebrationTitle.textContent = '🏆 Rhythm Master! 🏆';
+            } else if (gameState.perfectHits >= roundsPlayed * 0.4) {
+                celebrationTitle.textContent = '🔥 Pro Player! 🔥';
             } else {
-                celebrationTitle.textContent = '� Keep Gaming! �';
+                celebrationTitle.textContent = '👍 Keep Gaming! 👍';
             }
             
             // Show enhanced celebration
@@ -1293,7 +1208,7 @@
             
             // Create massive confetti explosion
             for (let i = 0; i < 100; i++) {
-                setTimeout(() => createEnhancedConfetti(i % 2 === 0 ? 'perfect' : 'good'), i * 50);
+                setTimeout(() => createEnhancedConfetti(i % 3 === 0 ? 'perfect' : 'good'), i * 20);
             }
             
             // Play victory voice clip
@@ -1305,7 +1220,7 @@
             document.getElementById('startButton').style.display = 'inline-block';
             document.getElementById('difficultySelector').style.display = 'block';
             document.getElementById('feedback').textContent = '';
-            document.getElementById('gameStatus').textContent = 'Choose difficulty to begin your Bollywood adventure!';
+            document.getElementById('gameStatus').textContent = 'Choose difficulty to start your rhythm gaming adventure!';
             document.getElementById('comboMeter').style.display = 'none';
             
             // Clear power-ups
@@ -1323,6 +1238,10 @@
         }
         
         function toggleAudio() {
+            if (!audioEnabled) {
+                enableAudio();
+                return;
+            }
             audioEnabled = !audioEnabled;
             const audioControl = document.getElementById('audioControl');
             
@@ -1336,27 +1255,32 @@
                 if (currentBGMusic) {
                     currentBGMusic.pause();
                 }
+                speechSynthesis.cancel();
             }
         }
         
         // Enhanced touch and keyboard support
+        function handleInteraction() {
+            if (gameState.isPlaying) {
+                handleTap();
+            } else if (!document.getElementById('celebration').style.display || 
+                      document.getElementById('celebration').style.display === 'none') {
+                if (document.getElementById('startButton').style.display !== 'none') {
+                    startGame();
+                }
+            }
+        }
+
         document.getElementById('tapButton').addEventListener('touchstart', function(e) {
             e.preventDefault();
-            handleTap();
+            handleInteraction();
         });
         
         // Multi-key support
         document.addEventListener('keydown', function(e) {
-            if (e.code === 'Space' || e.code === 'Enter' || e.code === 'ArrowUp') {
+            if (e.code === 'Space' || e.code === 'Enter' || e.code === 'KeyJ' || e.code === 'KeyK') {
                 e.preventDefault();
-                if (gameState.isPlaying) {
-                    handleTap();
-                } else if (!document.getElementById('celebration').style.display || 
-                          document.getElementById('celebration').style.display === 'none') {
-                    if (document.getElementById('startButton').style.display !== 'none') {
-                        startGame();
-                    }
-                }
+                handleInteraction();
             }
             
             // Theme switching with T key
@@ -1375,36 +1299,46 @@
             createDiscoLights();
             updateDisplay();
             
+            document.getElementById('gameStatus').textContent = 
+                'Loading Assets...';
+
             // Preload all audio files
             const audioElements = document.querySelectorAll('audio');
             let loadedCount = 0;
-            
-            audioElements.forEach(audio => {
-                audio.addEventListener('canplaythrough', () => {
-                    loadedCount++;
-                    if (loadedCount === audioElements.length) {
-                        document.getElementById('gameStatus').textContent = 
-                            'Audio loaded! Choose difficulty to begin your Bollywood adventure!';
-                    }
-                });
-                
-                // Set volumes
-                if (audio.id.includes('bgMusic')) {
-                    audio.volume = 0.6;
-                } else {
-                    audio.volume = 0.7;
+            const totalAssets = audioElements.length + gameState.dancers.length;
+
+            const assetLoaded = () => {
+                loadedCount++;
+                const percentage = Math.round((loadedCount / totalAssets) * 100);
+                document.getElementById('gameStatus').textContent = `Loading Assets... ${percentage}%`;
+                if (loadedCount === totalAssets) {
+                    document.getElementById('gameStatus').textContent = 
+                        'Ready! Choose difficulty to begin!';
+                    document.getElementById('startButton').disabled = false;
                 }
+            };
+
+            audioElements.forEach(audio => {
+                audio.addEventListener('canplaythrough', assetLoaded, { once: true });
+                audio.load(); // Start loading
+            });
+
+            // Preload dancer images
+            gameState.dancers.forEach(url => {
+                const img = new Image();
+                img.onload = assetLoaded;
+                img.src = url;
             });
             
             // Initialize default difficulty
             selectDifficulty('easy');
+            document.getElementById('startButton').disabled = true;
         }
         
         // Photo mode functionality
         function takeScreenshot() {
-            // This would require additional canvas implementation
-            // For now, show a message
-            showFeedback('📸 Photo saved to your memories! 📸', 'perfect');
+            // This would require a library like html2canvas for a real implementation
+            showFeedback('📸 Photo Mode Activated! (Feature in development)', 'perfect');
         }
         
         // Add screenshot button to celebration
@@ -1413,11 +1347,12 @@
             if (celebration) {
                 const photoBtn = document.createElement('button');
                 photoBtn.className = 'start-button';
-                photoBtn.innerHTML = '📸 Take Photo';
+                photoBtn.innerHTML = '📸 Photo Mode';
                 photoBtn.onclick = takeScreenshot;
                 photoBtn.style.fontSize = '1em';
                 photoBtn.style.padding = '10px 20px';
                 photoBtn.style.margin = '5px';
+                photoBtn.style.background = 'linear-gradient(45deg, #8e44ad, #9b59b6)';
                 celebration.appendChild(photoBtn);
             }
         }
@@ -1427,8 +1362,16 @@
             initializeGame();
             addPhotoButton();
             
-            // Add mobile-specific event listeners
-            document.addEventListener('touchstart', enableAudioOnTouch, { once: true });
+            // A single event listener to enable audio context
+            const enableAudioListener = () => {
+                enableAudio();
+                window.removeEventListener('click', enableAudioListener);
+                window.removeEventListener('touchstart', enableAudioListener);
+                window.removeEventListener('keydown', enableAudioListener);
+            };
+            window.addEventListener('click', enableAudioListener, { once: true });
+            window.addEventListener('touchstart', enableAudioListener, { once: true });
+            window.addEventListener('keydown', enableAudioListener, { once: true });
             
             // Prevent zoom on double tap for better mobile experience
             let lastTouchEnd = 0;
@@ -1439,21 +1382,6 @@
                 }
                 lastTouchEnd = now;
             }, false);
-            
-            // Add vibration feedback for mobile devices
-            if ('vibrate' in navigator) {
-                // Add haptic feedback to tap button
-                const tapButton = document.getElementById('tapButton');
-                const originalHandleTap = handleTap;
-                
-                // Override handleTap to include vibration
-                window.handleTap = function() {
-                    if (gameState.isPlaying && gameState.waitingForTap) {
-                        navigator.vibrate(50); // Short vibration on tap
-                    }
-                    originalHandleTap();
-                };
-            }
         });
     </script>
 </body>
