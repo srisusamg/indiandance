@@ -158,11 +158,15 @@
             margin: 20px;
             transition: all 0.3s ease;
             filter: drop-shadow(0 0 20px rgba(0, 168, 255, 0.6));
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
             position: relative;
             transform-style: preserve-3d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 120px;
+            background: radial-gradient(circle, rgba(0, 168, 255, 0.2), rgba(0, 255, 198, 0.1));
+            border-radius: 50%;
+            border: 3px solid rgba(0, 168, 255, 0.5);
         }
         
         .dancer.thumka {
@@ -478,28 +482,58 @@
             /* Mobile Safari specific fixes */
             .container {
                 height: 100dvh; /* Dynamic viewport height */
+                padding-top: max(60px, env(safe-area-inset-top) + 40px); /* Extra space for address bar */
                 padding-bottom: max(20px, env(safe-area-inset-bottom) + 20px);
+            }
+            
+            .header {
+                position: fixed;
+                top: env(safe-area-inset-top);
+                left: 15px;
+                right: 15px;
+                z-index: 200;
+                margin-bottom: 0;
             }
             
             .controls {
                 padding: 15px;
                 margin-bottom: env(safe-area-inset-bottom);
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: 200;
             }
             
             /* Ensure controls are always visible above Safari bottom bar */
             .controls {
-                position: relative;
-                z-index: 100;
-                background: rgba(0, 0, 0, 0.75);
-                backdrop-filter: blur(10px);
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: 200;
+                background: rgba(0, 0, 0, 0.85);
+                backdrop-filter: blur(15px);
                 border-radius: 20px 20px 0 0;
-                box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.3);
+                box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.4);
+                padding-bottom: max(15px, env(safe-area-inset-bottom) + 15px);
+            }
+            
+            .game-area {
+                margin-top: 120px; /* Space for fixed header */
+                margin-bottom: 200px; /* Space for fixed controls */
+                padding: 20px;
             }
             
             /* Better touch targets for mobile */
             .tap-button, .start-button, .difficulty-btn {
                 min-height: 44px; /* iOS recommended touch target */
                 min-width: 44px;
+            }
+            
+            .start-button {
+                font-size: 1.2em;
+                padding: 12px 24px;
             }
         }
         
@@ -580,20 +614,42 @@
     
     <button class="audio-control" id="audioControl" onclick="toggleAudio()">🎵</button>
     
-    <!-- High-Quality Bollywood Music Tracks from Pixabay -->
-    <audio id="bgMusic1" loop preload="auto" src="https://cdn.pixabay.com/audio/2022/01/21/audio_3118dd7452.mp3"></audio>
-    <audio id="bgMusic2" loop preload="auto" src="https://cdn.pixabay.com/audio/2023/05/18/audio_3353f371f0.mp3"></audio>
-    <audio id="bgMusic3" loop preload="auto" src="https://cdn.pixabay.com/audio/2022/05/23/audio_988958a683.mp3"></audio>
-    <audio id="bgMusic4" loop preload="auto" src="https://cdn.pixabay.com/audio/2022/03/10/audio_73d8699f3b.mp3"></audio>
-    <audio id="bgMusic5" loop preload="auto" src="https://cdn.pixabay.com/audio/2021/11/23/audio_85149e33b2.mp3"></audio>
+    <!-- Local fallback audio files (simple beep sounds) -->
+    <audio id="bgMusic1" loop preload="auto">
+        <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMnBTeJ0fPReicjKX3A7+OZUQ0PVqzn77BdGAg+ltryxnkpBSl+wPDckEAHElyx6OyrYB4GM5XT+LNhGwU4jM/y2IkyCBtxwu7nmi" type="audio/wav">
+    </audio>
+    <audio id="bgMusic2" loop preload="auto">
+        <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMnBTeJ0fPReicjKX3A7+OZUQ0PVqzn77BdGAg+ltryxnkpBSl+wPDckEAHElyx6OyrYB4GM5XT8bNhGwU4jM/y2IkyCBtxwu7nmi" type="audio/wav">
+    </audio>
+    <audio id="bgMusic3" loop preload="auto">
+        <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMnBTeJ0fPReicjKX3A7+OZUQ0PVqzn77BdGAg+ltryxnkpBSl+wPDckEAHElyx6OyrYB4GM5XT8bNhGwU4jM/y2IkyCBtxwu7nmi" type="audio/wav">
+    </audio>
+    <audio id="bgMusic4" loop preload="auto">
+        <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMnBTeJ0fPReicjKX3A7+OZUQ0PVqzn77BdGAg+ltryxnkpBSl+wPDckEAHElyx6OyrYB4GM5XT8bNhGwU4jM/y2IkyCBtxwu7nmi" type="audio/wav">
+    </audio>
+    <audio id="bgMusic5" loop preload="auto">
+        <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMnBTeJ0fPReicjKX3A7+OZUQ0PVqzn77BdGAg+ltryxnkpBSl+wPDckEAHElyx6OyrYB4GM5XT8bNhGwU4jM/y2IkyCBtxwu7nmi" type="audio/wav">
+    </audio>
     
-    <!-- High-Quality Sound Effects from Pixabay -->
-    <audio id="perfectSound" preload="auto" src="https://cdn.pixabay.com/audio/2022/03/15/audio_73ed55159a.mp3"></audio>
-    <audio id="goodSound" preload="auto" src="https://cdn.pixabay.com/audio/2021/08/04/audio_bb630cc098.mp3"></audio>
-    <audio id="missSound" preload="auto" src="https://cdn.pixabay.com/audio/2022/03/10/audio_e08735367a.mp3"></audio>
-    <audio id="comboSound" preload="auto" src="https://cdn.pixabay.com/audio/2022/11/21/audio_a25f131059.mp3"></audio>
-    <audio id="powerupSound" preload="auto" src="https://cdn.pixabay.com/audio/2022/05/06/audio_b87e38170c.mp3"></audio>
-    <audio id="celebrationSound" preload="auto" src="https://cdn.pixabay.com/audio/2022/08/23/audio_8697811a13.mp3"></audio>
+    <!-- Local fallback sound effects -->
+    <audio id="perfectSound" preload="auto">
+        <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMnBTeJ0fPReicjKX3A7+OZUQ0PVqzn77BdGAg+ltryxnkpBSl+wPDckEAHElyx6OyrYB4GM5XT8bNhGwU4jM/y2IkyCBtxwu7nmi" type="audio/wav">
+    </audio>
+    <audio id="goodSound" preload="auto">
+        <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMnBTeJ0fPReicjKX3A7+OZUQ0PVqzn77BdGAg+ltryxnkpBSl+wPDckEAHElyx6OyrYB4GM5XT8bNhGwU4jM/y2IkyCBtxwu7nmi" type="audio/wav">
+    </audio>
+    <audio id="missSound" preload="auto">
+        <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMnBTeJ0fPReicjKX3A7+OZUQ0PVqzn77BdGAg+ltryxnkpBSl+wPDckEAHElyx6OyrYB4GM5XT8bNhGwU4jM/y2IkyCBtxwu7nmi" type="audio/wav">
+    </audio>
+    <audio id="comboSound" preload="auto">
+        <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMnBTeJ0fPReicjKX3A7+OZUQ0PVqzn77BdGAg+ltryxnkpBSl+wPDckEAHElyx6OyrYB4GM5XT8bNhGwU4jM/y2IkyCBtxwu7nmi" type="audio/wav">
+    </audio>
+    <audio id="powerupSound" preload="auto">
+        <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMnBTeJ0fPReicjKX3A7+OZUQ0PVqzn77BdGAg+ltryxnkpBSl+wPDckEAHElyx6OyrYB4GM5XT8bNhGwU4jM/y2IkyCBtxwu7nmi" type="audio/wav">
+    </audio>
+    <audio id="celebrationSound" preload="auto">
+        <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMnBTeJ0fPReicjKX3A7+OZUQ0PVqzn77BdGAg+ltryxnkpBSl+wPDckEAHElyx6OyrYB4GM5XT8bNhGwU4jM/y2IkyCBtxwu7nmi" type="audio/wav">
+    </audio>
     
     <script>
         // Enhanced Game State with all new features
@@ -614,13 +670,9 @@
             activePowerUp: null,
             currentMusic: 0,
             
-            // Enhanced dancers with animated GIFs for a pro-gamer feel
+            // Enhanced dancers with emoji characters for reliable display
             dancers: [
-                'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3Y2a2NqZzZwc3JqZzZpZ3NqZzZqZzZqZzZqZzZqZzZx/l3vR7aXoH6C2AdBvO/giphy.gif',
-                'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3Y2a2NqZzZwc3JqZzZpZ3NqZzZqZzZqZzZqZzZqZzZx/xT0xezOCwbeQ6S2h2w/giphy.gif',
-                'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3Y2a2NqZzZwc3JqZzZpZ3NqZzZqZzZqZzZqZzZqZzZx/3o7TKUMp3dGz535MvK/giphy.gif',
-                'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3Y2a2NqZzZwc3JqZzZpZ3NqZzZqZzZqZzZqZzZqZzZx/3o6ZtqNbtk2S2g3yA8/giphy.gif',
-                'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3Y2a2NqZzZwc3JqZzZpZ3NqZzZqZzZqZzZqZzZqZzZx/l2Spitchc6g3iAI2A/giphy.gif'
+                '💃', '🕺', '🎭', '🎪', '🎨'
             ],
             currentDancer: 0,
             
@@ -689,10 +741,14 @@
             }
         }
         
-        // Enhanced theme switching
+        // Enhanced theme switching with cultural festivals
         function switchTheme() {
+            const themeNames = ['Holi Festival', 'Diwali Celebration', 'Wedding Dance', 'Club Night', 'Gaming Arena'];
             gameState.currentTheme = (gameState.currentTheme + 1) % gameState.themes.length;
             document.body.className = gameState.themes[gameState.currentTheme];
+            
+            // Show theme change notification
+            showFeedback(`🎨 Theme: ${themeNames[gameState.currentTheme]}!`, 'perfect');
         }
         
         // Power-up system
@@ -771,7 +827,7 @@
                 `${difficulty.charAt(0).toUpperCase() + difficulty.slice(1)} mode selected! Press Start!`;
         }
         
-        // Enhanced music system with authentic Bollywood tracks
+        // Enhanced music system with Web Audio API fallback
         function playBackgroundMusic() {
             if (!audioEnabled) return;
             
@@ -784,13 +840,33 @@
             currentBGMusic = document.getElementById(musicTracks[gameState.currentMusic]);
             
             // Set volume for better experience
-            currentBGMusic.volume = 0.4;
+            currentBGMusic.volume = 0.3;
             const playPromise = currentBGMusic.play();
             if (playPromise !== undefined) {
                 playPromise.catch(e => {
-                    console.log('Audio play failed:', e);
-                    // Audio will be enabled on first user tap
+                    console.log('Audio play failed, using Web Audio API fallback');
+                    // Create simple background tone using Web Audio API
+                    createWebAudioTone();
                 });
+            }
+        }
+        
+        // Web Audio API fallback for background music
+        function createWebAudioTone() {
+            if (typeof AudioContext !== 'undefined' || typeof webkitAudioContext !== 'undefined') {
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.frequency.value = 220; // A note
+                gainNode.gain.value = 0.1;
+                oscillator.type = 'sine';
+                
+                oscillator.start();
+                setTimeout(() => oscillator.stop(), 500);
             }
         }
         
@@ -811,8 +887,47 @@
             const sound = document.getElementById(soundId);
             if (sound) {
                 sound.currentTime = 0;
-                sound.volume = 0.6;
-                sound.play().catch(e => console.log('Sound play failed:', e));
+                sound.volume = 0.4;
+                const playPromise = sound.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(e => {
+                        // Fallback to Web Audio API beep
+                        createWebAudioBeep(soundId);
+                    });
+                }
+            }
+        }
+        
+        // Web Audio API fallback for sound effects
+        function createWebAudioBeep(soundType) {
+            if (typeof AudioContext !== 'undefined' || typeof webkitAudioContext !== 'undefined') {
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                // Different frequencies for different sound types
+                switch(soundType) {
+                    case 'perfectSound':
+                        oscillator.frequency.value = 880; // High pitch for perfect
+                        break;
+                    case 'goodSound':
+                        oscillator.frequency.value = 440; // Medium pitch for good
+                        break;
+                    case 'missSound':
+                        oscillator.frequency.value = 220; // Low pitch for miss
+                        break;
+                    default:
+                        oscillator.frequency.value = 330;
+                }
+                
+                gainNode.gain.value = 0.1;
+                oscillator.type = 'sine';
+                
+                oscillator.start();
+                setTimeout(() => oscillator.stop(), 200);
             }
         }
         
@@ -879,9 +994,9 @@
             playBackgroundMusic();
             updateDisplay();
             
-            // Set initial dancer
+            // Set initial dancer emoji
             const dancer = document.getElementById('dancer');
-            dancer.style.backgroundImage = `url(${gameState.dancers[0]})`;
+            dancer.textContent = gameState.dancers[0];
             
             scheduleNextMove();
         }
@@ -916,11 +1031,11 @@
             gameState.currentMove = Math.floor(Math.random() * gameState.danceMoves.length);
             const move = gameState.danceMoves[gameState.currentMove];
             
-            // Change dancer occasionally with animated GIFs
+            // Change dancer occasionally with emoji characters
             if (Math.random() < 0.3) {
                 gameState.currentDancer = (gameState.currentDancer + 1) % gameState.dancers.length;
                 const dancer = document.getElementById('dancer');
-                dancer.style.backgroundImage = `url(${gameState.dancers[gameState.currentDancer]})`;
+                dancer.textContent = gameState.dancers[gameState.currentDancer];
             }
             
             // Animate dancer with specific move
@@ -948,8 +1063,8 @@
             // Create power-up occasionally
             createPowerUp();
             
-            // Theme change every 10 rounds
-            if (gameState.round % 10 === 0) {
+            // Theme change every 3 rounds for more variety
+            if (gameState.round % 3 === 0) {
                 switchTheme();
             }
             
@@ -1302,7 +1417,7 @@
             document.getElementById('gameStatus').textContent = 
                 'Loading Assets...';
 
-            // Preload all audio files
+            // Preload all audio files with better error handling
             const audioElements = document.querySelectorAll('audio');
             let loadedCount = 0;
             const totalAssets = audioElements.length + gameState.dancers.length;
@@ -1319,16 +1434,28 @@
             };
 
             audioElements.forEach(audio => {
-                audio.addEventListener('canplaythrough', assetLoaded, { once: true });
+                // Set timeout for audio loading to prevent hanging
+                const loadTimeout = setTimeout(() => {
+                    assetLoaded(); // Count as loaded even if failed
+                }, 2000);
+                
+                audio.addEventListener('canplaythrough', () => {
+                    clearTimeout(loadTimeout);
+                    assetLoaded();
+                }, { once: true });
+                
+                audio.addEventListener('error', () => {
+                    clearTimeout(loadTimeout);
+                    assetLoaded(); // Count as loaded even if failed
+                }, { once: true });
+                
                 audio.load(); // Start loading
             });
 
-            // Preload dancer images
-            gameState.dancers.forEach(url => {
-                const img = new Image();
-                img.onload = assetLoaded;
-                img.src = url;
-            });
+            // Emoji dancers don't need preloading, so count them as loaded
+            for (let i = 0; i < gameState.dancers.length; i++) {
+                assetLoaded();
+            }
             
             // Initialize default difficulty
             selectDifficulty('easy');
